@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // user schema
 const userSchema = new Schema({
-  fullName: {
+  organizationName: {
 	  type: String,
 	  required: true,
 	  minlength: 2,
@@ -56,7 +56,7 @@ const userSchema = new Schema({
     type: String,
     default: 'web',
   },
-  occupation: {
+  industry: {
 	  type: String,
 	  default: '',
   },

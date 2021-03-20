@@ -32,6 +32,8 @@ class UsersController extends BaseController {
 	  'source',
 	  'googleId',
 	  'facebookId',
+	  'organizationName',
+	  'industry'
 	];
 
 	register = async (req, res, next) => {
