@@ -60,6 +60,10 @@ const userSchema = new Schema({
 	  type: String,
 	  default: '',
   },
+  ClubCategories: {
+    type: String,
+	  default: '',
+  },
   googleId: {
     type: String,
     default: '',

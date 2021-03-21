@@ -33,11 +33,13 @@ class UsersController extends BaseController {
 	  'googleId',
 	  'facebookId',
 	  'organizationName',
-	  'industry'
+	  'industry',
+	  'ClubCategories',
 	];
 
 	register = async (req, res, next) => {
 	  const params = this.filterParams(req.body, this.whitelist);
+	  console.log('paramss', params);
 	  try {
 	      // See if user exist
 	      const user = await User.findOne({ email: params['email'] });
@@ -386,9 +388,11 @@ class UsersController extends BaseController {
 	  try {
 	    const firstRole = req.query.q1;
 	    const secondRole = req.query.q2;
+	    const category = req.query.category;
+	    const club = req.query.club;
 	    console.log('dddd', firstRole, secondRole);
-	    const firstRow = await User.find({ role: firstRole });
-	    const secondRow = await User.find({ role: secondRole });
+	    const firstRow = await User.find({ role: firstRole, ClubCategories: category, clubName: club });
+	    const secondRow = await User.find({ role: secondRole, ClubCategories: category, clubName: club });
 	    res.status(200).json({
 	      creators: firstRow,
 	      storeOwnerUser: secondRow,
